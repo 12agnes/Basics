@@ -1,2 +1,2 @@
-# Collection of Projects
+# Collection of Mini Works
 ### Scraping google search using "julia"
