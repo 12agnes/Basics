@@ -3,21 +3,20 @@ using PyCall
 @pyimport bs4
 @pyimport urllib.request as urllib
 
-text = "bitcoin"
 
-url = string("https://google.com/search?q=",text)
-# + text;
-# url_news = "https://www.google.com/search?q="+text+"&source=lnms&tbm=nws";
+function top_results(text)
+    
+    url = string("https://google.com/search?q=",text)
+    response = requests.get(url)
+    soup = bs4.BeautifulSoup(response[:content]);
+    rule = soup[:find_all](class_="g");
 
-response = requests.get(url)
-
-soup = bs4.BeautifulSoup(response[:content]);
-
-
-rule = soup[:find_all](class_="g");
-
-for g in rule
-    result = g[:text]
-    println("-----------search results---------------")
-    println(result)
+    for g in rule
+        result = g[:text]
+        println("-----------search results---------------")
+        println(result)
+    end
 end
+
+text = chomp(readline());
+top_results(text)
