@@ -1,3 +1,4 @@
+using Dates
 using PyCall
 @pyimport requests
 @pyimport bs4
@@ -16,6 +17,7 @@ function top_results(text)
         println("-----------search results---------------")
         println(result)
     end
+     println(Dates.today())
 end
 
 text = chomp(readline());
